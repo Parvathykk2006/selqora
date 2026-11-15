@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><title>Selqora: Echoes Beyond Earth</title>
+<meta name="description" content="Stories of the machines NASA left behind on the Moon and Mars. Code, text and drawings were created with the help of an AI assistant (Claude, by Anthropic).">
+<meta name="author" content="Team Selqora">
+<meta name="generator" content="Created with AI assistance (Claude, by Anthropic)">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
 :root{--bg:#0b1020;--card:#141c36;--ink:#f1f3fb;--mute:#a3aed0;--line:#2a3763;--gold:#ffc766;--rust:#e0805a;--moon:#cfd3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -35,7 +38,7 @@ button.pick1 b{display:block}button.pick1 span{color:var(--mute);font-size:14px}
 <p>Long ago, NASA sent robots and spacecraft far from home. When their missions ended, some stayed where they landed. They are still out there, like echoes of the people who built them.</p>
 <p>On this site, those machines tell you their own stories: what they were, why they were sent, and what they found. Here is how to use it:</p>
 <ol><li>Look at the Moon below, or use the list of machines.</li><li>Tap a glowing dot or a name.</li><li>Read the story, then check the quick facts and the NASA link.</li></ol>
-<p>Every fact comes from NASA pages, and every drawing was made by us.</p>
+<p>Every fact comes from NASA pages. The drawings were made in code with the help of an AI assistant.</p>
 <a class="go" href="#explore">Start exploring</a></section>
 <h2 id="explore">Meet the machines</h2>
 <p class="lead">Pick a machine and let it talk. Made by team Selqora.</p>
@@ -47,7 +50,7 @@ button.pick1 b{display:block}button.pick1 span{color:var(--mute);font-size:14px}
 <div class="pick" id="pick"></div></div>
 <div class="card" id="story" aria-live="polite"></div>
 </div>
-<footer><p><b>Sources.</b> Every fact comes from NASA pages: NASA NSSDCA Master Catalog (Apollo 11 and Apollo 15 Lunar Module entries) and NASA Science (Mars Pathfinder). Stories are written in our own words. The machines are drawn by us in code, so there are no photos and no copyrighted media. No people appear in this site.</p><p><b>About this project.</b> Selqora is a student project made for the NASA Space Apps Challenge. It is not made or endorsed by NASA. NASA’s public pages are used only as our sources.</p></footer>
+<footer><p><b>Sources.</b> Every fact comes from NASA pages: NASA NSSDCA Master Catalog (Apollo 11 and Apollo 15 Lunar Module entries) and NASA Science (Mars Pathfinder). The stories are paraphrased, not copied from NASA pages. The machines are drawn in code, so there are no photos and no copyrighted media. No people appear in this site.</p><p><b>About this project.</b> Selqora is a student project made for the NASA Space Apps Challenge. It is not made or endorsed by NASA. NASA’s public pages are used only as our sources.</p><p><b>AI assistance.</b> The code, text and drawings on this site were created with the help of an AI assistant (Claude, by Anthropic). The facts were checked against the NASA pages listed above.</p></footer>
 </main>
 <script>
 const R=150,D=Math.PI/180;
@@ -80,7 +83,7 @@ $("pick").innerHTML=S.map(s=>`<button class="pick1" data-id="${s.id}" aria-press
 function show(id){const s=S.find(x=>x.id===id);
 document.querySelectorAll(".pick1").forEach(b=>b.setAttribute("aria-pressed",b.dataset.id===id));
 $("story").innerHTML=`<div class="where">${s.world}, ${s.sub}</div><h2>${s.name}</h2>
-<svg viewBox="0 0 260 180" role="img" aria-label="Drawing of ${s.name}" style="max-width:300px;margin:6px 0"><rect width="260" height="180" rx="12" fill="${s.world==="Moon"?"#1b2038":"#3a2a2a"}"/><rect y="164" width="260" height="16" fill="${s.world==="Moon"?"#4a4f66":"#8a4a34"}"/>${s.draw}</svg>
+<svg viewBox="0 0 260 180" role="img" aria-label="Drawing of ${s.name}" style="max-width:300px;margin:6px 0"><rect width="260" height="180" rx="12" fill="${s.world==="Moon"?"#1b2038":"#3a2a2a"}"/><rect y="164" width="260" height="16" fill="${s.world==="Moon"?"#4a4f66":"#8a4a34"}"/>${s.draw}<text x="252" y="176" text-anchor="end" font-size="10" fill="#e8ebf7">AI-generated drawing</text></svg>
 ${s.story.map(p=>`<p class="voice">${p}</p>`).join("")}
 <div class="facts">${s.facts.map(f=>`<div class="fact"><small>${f[0]}</small>${f[1]}</div>`).join("")}</div>
 <p class="now"><b>Where am I now?</b> ${s.now}</p>
